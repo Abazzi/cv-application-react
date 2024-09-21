@@ -1,8 +1,8 @@
-export default function PersonalInfoComponent({ personalInfo, onChangePersonalInfo }) {
+export default function PersonalInfoForm({ personalInfo, onChangePersonalInfo }) {
 
   return (
     <>
-      <div className="personal-data-form">
+      <div className="personal-info-form">
         <h2 className="heading">
           Personal Data
         </h2>

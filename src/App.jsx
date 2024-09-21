@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import './App.scss'
-import PersonalInfoComponent from './components/PersonalInfoComponent'
-import PersonalInfoPreviewComponent from './components/PersonalInfoPreviewComponent';
+import './styles/App.scss'
+import PersonalInfoForm from './components/PersonalInfoForm'
+import PersonalInfoPreview from './components/PersonalInfoPreview';
+import EducationInfoForm from './components/EducationInfoForm';
+import EducationInfoPreview from './components/EducationInfoPreview';
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -11,11 +13,25 @@ function App() {
     phoneNumber: "123456789",
   }
   );
+  const [education, setEductation] = useState({
+    school: "St. Clair College",
+    program: "Mobile Application Development",
+    description: "Developing Mobile Apps for Android and iPhone",
+    startDate: "2017",
+    endDate: "2020",
+  }
+  );
+
   return (
     <>
-      <h1>CV Application</h1>
-      <PersonalInfoComponent personalInfo={personalInfo} onChangePersonalInfo={setPersonalInfo} />
-      <PersonalInfoPreviewComponent personalInfo={personalInfo} />
+      <div className="form">
+        <PersonalInfoForm personalInfo={personalInfo} onChangePersonalInfo={setPersonalInfo} />
+        <EducationInfoForm education={education} setEducation={setEductation} />
+      </div>
+      <div className="render">
+        <PersonalInfoPreview personalInfo={personalInfo} />
+        <EducationInfoPreview education={education} />
+      </div>
     </>
   )
 }
