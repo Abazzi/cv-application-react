@@ -1,4 +1,4 @@
-export default function PersonalInfoForm({ personalInfo, onChangePersonalInfo }) {
+export default function PersonalInfoForm({ personalInfo, handlePersonalInfo }) {
 
   return (
     <>
@@ -9,27 +9,33 @@ export default function PersonalInfoForm({ personalInfo, onChangePersonalInfo })
         <div className="fullname">
           <input
             type="text"
+            name="firstName"
             placeholder="First Name"
-            maxLength={15}
+            maxLength={50}
             value={personalInfo.firstName}
-            onChange={(event) => onChangePersonalInfo({ ...personalInfo, firstName: event.target.value })} />
+            onChange={handlePersonalInfo} />
           <input
             type="text"
             placeholder="Last Name"
-            maxLength={13}
+            name="lastName"
+            maxLength={50}
             value={personalInfo.lastName}
-            onChange={(event) => onChangePersonalInfo({ ...personalInfo, lastName: event.target.value })} />
+            onChange={handlePersonalInfo} />
         </div>
         <input
           type="text"
           placeholder="email"
+          name="email"
+          maxLength={50}
           value={personalInfo.email}
-          onChange={(event) => onChangePersonalInfo({ ...personalInfo, email: event.target.value })} />
+          onChange={handlePersonalInfo} />
         <input
           type="text"
           placeholder="phoneNumber"
+          name="phoneNumber"
+          maxLength={50}
           value={personalInfo.phoneNumber}
-          onChange={(event) => onChangePersonalInfo({ ...personalInfo, phoneNumber: event.target.value })} />
+          onChange={handlePersonalInfo} />
       </div>
     </>
   )
