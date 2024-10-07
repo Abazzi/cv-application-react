@@ -1,12 +1,13 @@
 export default function EducationInfoPreview({ education }) {
-  return (
-    <>
-      <div className="education-info-preview">
-        <h1>School: {education.school}</h1>
-        <h2>Program: {education.program}</h2>
-        <p>Description: {education.description}</p>
-        <p>Graduated: {education.endDate}</p>
-      </div>
-    </>
+
+  const eduPreview = education.map((edu, index) =>
+    <div key={index} id={edu.id} className="education-info-preview">
+      <h1>Education {index}</h1>
+      <h2>School: {edu.school}</h2>
+      <h2>Program: {edu.program}</h2>
+      <p>Description: {edu.description}</p>
+      <p>Graduated: {edu.endDate}</p>
+    </div>
   )
+  return eduPreview;
 }
