@@ -3,68 +3,75 @@ import './styles/App.scss'
 import PersonalInfoForm from './components/PersonalInfoForm'
 import PersonalInfoPreview from './components/PersonalInfoPreview';
 import EducationInfoForm from './components/EducationInfoForm';
-import EducationInfoPreview from './components/EducationInfoPreview';
+import EducationInfoPreview from './components/EducationInfoPreview'
 
 function App() {
-  // const [personalInfo, setPersonalInfo] = useState({
-  //   firstName: "Hari",
-  //   lastName: "Bauls",
-  //   email: "haribauls@owls.co",
-  //   phoneNumber: "420691234",
-  // }
-  // );
 
-  const [data, setData] = useState({
+  const [personalInfo, setPersonalInfo] = useState({
     personalInfo: {
       id: crypto.randomUUID(),
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-    },
+      firstName: "Harry",
+      lastName: "Bauls",
+      email: "harrybauls@owls.co",
+      phoneNumber: "420691234",
+    }
+  });
+
+  const [education, setEducation] = useState({
     education: [
       {
         id: crypto.randomUUID(),
-        school: "St. Clair College",
-        program: "Mobile Application Development",
-        description: "Creating Apps for iOS and Android",
+        school: "st. clair college",
+        program: "mobile application development",
+        description: "creating apps for ios and android",
         startDate: "2016",
         endDate: "2020",
-      }
+      },
     ]
-  })
+  });
 
-  const handleEducation = (e, id) => {
-    setData({
-      ...data, education: data.education.map(edu => {
-        if (edu.id == id) {
-          edu[e.target.name] = e.target.value;
-          return edu;
-        }
-      })
+  const handleEducationInputChange = (e, id) => {
+    const newEdu = education.map(education => {
+      if (e.id === id) {
+        education[e.target.name] = e.target.value
+      }
     })
+
+    setEducation(newEdu);
   }
 
-  function handlePersonalInfo(e) {
-    setData({
-      ...data, personalInfo: { ...data.personalInfo, [e.target.name]: e.target.value }
+  const handlePersonalInfo = (e) => {
+    setPersonalInfo({
+      ...personalInfo, [e.target.name]: e.target.value
     });
   };
 
   const addEducation = () => {
-    setData({ ...data, education: [...data.education, { id: crypto.randomUUID(), school: "", program: "", description: "", startDate: "", endDate: "" }] })
+    setEducation([
+      ...education, {
+        id: crypto.randomUUID(),
+        school: "",
+        program: "",
+        description: "",
+        startDate: "",
+        endDate: "",
+      }
+    ])
   }
 
   return (
     <>
       <div className="form">
-        <PersonalInfoForm personalInfo={data.personalInfo} handlePersonalInfo={handlePersonalInfo} />
+        <PersonalInfoForm personalInfo={personalInfo} handlePersonalInfo={handlePersonalInfo} />
+        <EducationInfoForm education={education} handleEducationInputChange={handleEducationInputChange} addEducation={addEducation} />
       </div>
       <div className="render">
-        <PersonalInfoPreview personalInfo={data.personalInfo} />
+        <PersonalInfoPreview personalInfo={personalInfo} />
+        <EducationInfoPreview education={education} />
       </div>
     </>
   )
 }
+
 
 export default App

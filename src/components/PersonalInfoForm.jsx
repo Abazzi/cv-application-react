@@ -1,5 +1,4 @@
 export default function PersonalInfoForm({ personalInfo, handlePersonalInfo }) {
-
   return (
     <>
       <div className="personal-info-form">

@@ -1,13 +1,22 @@
 export default function EducationInfoPreview({ education }) {
 
-  const eduPreview = education.map((edu, index) =>
-    <div key={index} id={edu.id} className="education-info-preview">
-      <h1>Education {index + 1}</h1>
-      <h2>School: {edu.school}</h2>
-      <h2>Program: {edu.program}</h2>
-      <p>Description: {edu.description}</p>
-      <p>Graduated: {edu.endDate}</p>
-    </div>
-  )
-  return eduPreview;
+  // guard clause checking if data was passed in
+  if (!education) {
+    return <h1>Where is the data bruh</h1>
+  } else {
+    return (
+      <>
+        {education.map((education, index) =>
+          <div key={education.id} className="education-info-preview">
+            <h1>Education {index + 1}</h1>
+            <h2 name="school">School: {education.school}</h2>
+            <h2 name="program">Program: {education.program}</h2>
+            <p name="description">Description: {education.description}</p>
+            <p name="startDate">Attended: {education.startDate}</p>
+          </div>
+        )
+        }
+      </>
+    )
+  }
 }
