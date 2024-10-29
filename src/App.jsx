@@ -17,27 +17,27 @@ function App() {
     }
   });
 
-  const [education, setEducation] = useState({
-    education: [
-      {
-        id: crypto.randomUUID(),
-        school: "st. clair college",
-        program: "mobile application development",
-        description: "creating apps for ios and android",
-        startDate: "2016",
-        endDate: "2020",
-      },
-    ]
-  });
+  const [education, setEducation] = useState([
+    {
+      id: crypto.randomUUID(),
+      school: "st. clair college",
+      program: "mobile application development",
+      description: "creating apps for ios and android",
+      startDate: "2016",
+      endDate: "2020",
+    },
+  ]
+  );
 
   const handleEducationInputChange = (e, id) => {
-    const newEdu = education.map(education => {
-      if (e.id === id) {
-        education[e.target.name] = e.target.value
+    setEducation(education.map(edu => {
+      if (edu.id === id) {
+        edu[e.target.name] = e.target.value;
+        return edu;
+      } else {
+        return edu;
       }
-    })
-
-    setEducation(newEdu);
+    }))
   }
 
   const handlePersonalInfo = (e) => {

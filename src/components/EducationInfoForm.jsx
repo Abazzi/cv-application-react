@@ -5,8 +5,9 @@ function EducationInfoForm({ education, handleEducationInputChange, addEducation
   if (!education) {
     return <h1>Where is the data bruh?</h1>
   } else {
-    const eduList = education.map(edu =>
+    const eduList = education.map((edu, index) =>
       <div key={edu.id} className="single-education-form">
+        <h1>Education {index + 1}</h1>
         <div className="school">
           <input
             type="text"
