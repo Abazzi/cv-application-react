@@ -47,6 +47,10 @@ function App() {
     }))
   }
 
+  const removeEducation = (id) => {
+    setEducation(education.filter(edu => edu.id !== id))
+  }
+
   const handlePersonalInfo = (e) => {
     setPersonalInfo({
       ...personalInfo, [e.target.name]: e.target.value
