@@ -23,14 +23,14 @@ export default function PersonalInfoForm({ personalInfo, handlePersonalInfo }) {
         </div>
         <input
           type="text"
-          placeholder="email"
+          placeholder="Email"
           name="email"
           maxLength={50}
           value={personalInfo.email}
           onChange={handlePersonalInfo} />
         <input
           type="text"
-          placeholder="phoneNumber"
+          placeholder="Phone Number (###-###-####)"
           name="phoneNumber"
           maxLength={50}
           value={personalInfo.phoneNumber}
