@@ -36,13 +36,15 @@ function EducationInfoForm({ education, handleEducationInputChange, addEducation
           onChange={(e) => handleEducationInputChange(e, edu.id)} />
         <div className="dateRange">
           <input
-            type="text"
+            type="number"
+            size={4}
             name="startDate"
             placeholder="Start Year"
             value={edu.startDate}
             onChange={(e) => handleEducationInputChange(e, edu.id)} />
           <input
-            type="text"
+            type="number"
+            size={4}
             name="endDate"
             placeholder="End Year"
             value={edu.endDate}
