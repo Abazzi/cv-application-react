@@ -1,13 +1,17 @@
 import AddEducationButton from "./AddEducationButton";
 
-function EducationInfoForm({ education, handleEducationInputChange, addEducation }) {
+function EducationInfoForm({ education, handleEducationInputChange, addEducation, removeEducation }) {
   // guard clause checking if data was passed in
   if (!education) {
     return <h1>Where is the data bruh?</h1>
   } else {
     const eduList = education.map((edu, index) =>
       <div key={edu.id} className="single-education-form">
-        <h1>Education {index + 1}</h1>
+        <div className="education-heading">
+          <h1>Education {index + 1}</h1>
+          <h3>{edu.id}</h3>
+          <button className="deleteEdu" onClick={() => removeEducation(edu.id)}>X</button>
+        </div>
         <div className="school">
           <input
             type="text"
