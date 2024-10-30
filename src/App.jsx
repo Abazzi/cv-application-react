@@ -73,8 +73,14 @@ function App() {
   return (
     <>
       <div className="form">
-        <PersonalInfoForm personalInfo={personalInfo} handlePersonalInfo={handlePersonalInfo} />
-        <EducationInfoForm education={education} handleEducationInputChange={handleEducationInputChange} addEducation={addEducation} />
+        <PersonalInfoForm
+          personalInfo={personalInfo}
+          handlePersonalInfo={handlePersonalInfo}
+        />
+        <EducationInfoForm education={education}
+          handleEducationInputChange={handleEducationInputChange}
+          removeEducation={removeEducation}
+          addEducation={addEducation} />
       </div>
       <div className="render">
         <PersonalInfoPreview personalInfo={personalInfo} />
