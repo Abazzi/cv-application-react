@@ -19,11 +19,19 @@ function App() {
   const [education, setEducation] = useState([
     {
       id: crypto.randomUUID(),
-      school: "st. clair college",
-      program: "mobile application development",
-      description: "creating apps for ios and android",
+      school: "St. Clair College",
+      program: "Mobile Application Development",
+      description: "Creating Apps for Android and iOS",
       startDate: "2016",
       endDate: "2020",
+    },
+    {
+      id: crypto.randomUUID(),
+      school: "University of Windsor",
+      program: "Computer Science",
+      description: "Making computers do stuff",
+      startDate: "2020",
+      endDate: "2024",
     },
   ]
   );
