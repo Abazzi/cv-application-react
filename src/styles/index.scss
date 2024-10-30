@@ -1,0 +1,56 @@
+#root {
+  display: grid;
+  grid-template-columns: 12fr;
+  background-color: #ececec;
+}
+
+.form {
+  display: inline-flex;
+  flex-direction: column;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  padding: 1rem;
+}
+
+.render {
+  display: inline-flex;
+  flex-direction: column;
+  grid-column-start: 6;
+  grid-column-end: 11;
+  padding: 1rem;
+}
+
+.add-button {
+  background-color: orange;
+  color: #eeeeee;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  width: 3rem;
+  margin-top: 1rem;
+
+  &:hover {
+    background-color: blue;
+  }
+}
+
+.education-heading {
+  display: inline-flex;
+  justify-content: space-around;
+
+  .deleteEdu {
+    background-color: red;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+
+    &:hover {
+      background-color: green;
+    }
+  }
+}
