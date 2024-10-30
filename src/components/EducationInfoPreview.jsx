@@ -6,13 +6,13 @@ export default function EducationInfoPreview({ education }) {
   } else {
     return (
       <>
-        {education.map((education, index) =>
-          <div key={education.id} className="education-info-preview">
+        {education.map((edu, index) =>
+          <div key={edu.id} className="education-info-preview">
             <h1>Education {index + 1}</h1>
-            <h2 name="school">School: {education.school}</h2>
-            <h2 name="program">Program: {education.program}</h2>
-            <p name="description">Description: {education.description}</p>
-            <p name="startDate">Attended: {education.startDate}</p>
+            <h2 name="school">School: {edu.school}</h2>
+            <h2 name="program">Program: {edu.program}</h2>
+            <p name="description">Description: {edu.description}</p>
+            <p name="startDate">Attended: {edu.startDate}</p>
           </div>
         )
         }
