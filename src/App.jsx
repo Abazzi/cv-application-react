@@ -7,13 +7,11 @@ import ExperienceInfoForm from './components/ExperienceInfoForm';
 function App() {
 
   const [personalInfo, setPersonalInfo] = useState({
-    personalInfo: {
-      id: crypto.randomUUID(),
-      firstName: "Harry",
-      lastName: "Bauls",
-      email: "harrybauls@owls.co",
-      phoneNumber: "420691234",
-    }
+    id: crypto.randomUUID(),
+    firstName: "Harry",
+    lastName: "Bauls",
+    email: "harrybauls@owls.co",
+    phoneNumber: "420691234",
   });
 
   const handlePersonalInfo = (e) => {
