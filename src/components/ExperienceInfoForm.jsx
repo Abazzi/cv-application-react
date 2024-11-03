@@ -1,6 +1,5 @@
+import AddItemButton from "./AddItemButton"
 
-import AddExperienceButton from "./AddExperienceButton";
-import AddExperienceButtonfrom from "./AddExperienceButton";
 
 export default function ExperienceInfoForm({ experience, handleExperienceInputChange, addExperience, removeExperience }) {
   // guard clause checking if data was passed in
@@ -8,7 +7,7 @@ export default function ExperienceInfoForm({ experience, handleExperienceInputCh
     return (
       <>
         <h1>Where is the data bruh?</h1>
-        <AddExperienceButton addExperience={AddExperienceButton} />
+        <AddItemButton addFunction={addExperience} />
       </>
     )
 
@@ -62,7 +61,7 @@ export default function ExperienceInfoForm({ experience, handleExperienceInputCh
     return (
       <div className="experience-form" >
         {expList}
-        <AddExperienceButtonfrom addExperience={addExperience} />
+        <AddItemButton addFunction={addExperience} />
       </div>
     )
   }

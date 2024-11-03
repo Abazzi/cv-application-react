@@ -1,9 +1,14 @@
-import AddEducationButton from "./AddEducationButton";
+import AddItemButton from "./AddItemButton";
 
 function EducationInfoForm({ education, handleEducationInputChange, addEducation, removeEducation }) {
   // guard clause checking if data was passed in
   if (!education) {
-    return <h1>Where is the data bruh?</h1>
+    return (
+      <>
+        <h1>Enter Education Info Below</h1>
+        <AddItemButton addFunction={addEducation} />
+      </>
+    )
   } else {
     const eduList = education.map((edu, index) =>
       <div key={edu.id} className="single-education-form">
@@ -54,7 +59,7 @@ function EducationInfoForm({ education, handleEducationInputChange, addEducation
     return (
       <div className="education-form" >
         {eduList}
-        <AddEducationButton addEducation={addEducation} />
+        <AddItemButton addFunction={addEducation} />
       </div>
     )
   }
