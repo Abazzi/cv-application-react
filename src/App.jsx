@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import PersonalInfoForm from './components/PersonalInfoForm'
-import PersonalInfoPreview from './components/PersonalInfoPreview';
 import EducationInfoForm from './components/EducationInfoForm';
-import EducationInfoPreview from './components/EducationInfoPreview'
+import ResumeRender from './components/RenderedResume';
+import ExperienceInfoForm from './components/ExperienceInfoForm';
 
 function App() {
 
@@ -15,6 +15,12 @@ function App() {
       phoneNumber: "420691234",
     }
   });
+
+  const handlePersonalInfo = (e) => {
+    setPersonalInfo({
+      ...personalInfo, [e.target.name]: e.target.value
+    });
+  };
 
   const [education, setEducation] = useState([
     {
@@ -51,18 +57,60 @@ function App() {
     setEducation(education.filter(edu => edu.id !== id))
   }
 
-  const handlePersonalInfo = (e) => {
-    setPersonalInfo({
-      ...personalInfo, [e.target.name]: e.target.value
-    });
-  };
-
   const addEducation = () => {
     setEducation([
       ...education, {
         id: crypto.randomUUID(),
         school: "",
         program: "",
+        description: "",
+        startDate: "",
+        endDate: "",
+      }
+    ])
+  }
+
+  const [experience, setExperience] = useState([
+    {
+      id: crypto.randomUUID(),
+      company: "Meta",
+      position: "Mobile Application Development",
+      description: "Creating Apps for Android and iOS",
+      startDate: "2016",
+      endDate: "2020",
+    },
+    {
+      id: crypto.randomUUID(),
+      company: "Twitter",
+      position: "Mobile Application Development",
+      description: "Creating Apps for Android and iOS",
+      startDate: "2016",
+      endDate: "2020",
+    },
+  ]
+  );
+
+  const handleExperienceInputChange = (e, id) => {
+    setExperience(experience.map(exp => {
+      if (exp.id === id) {
+        exp[e.target.name] = e.target.value;
+        return exp;
+      } else {
+        return exp;
+      }
+    }))
+  }
+
+  const removeExperience = (id) => {
+    setExperience(experience.filter(exp => exp.id !== id))
+  }
+
+  const addExperience = () => {
+    setExperience([
+      ...experience, {
+        id: crypto.randomUUID(),
+        company: "",
+        position: "",
         description: "",
         startDate: "",
         endDate: "",
@@ -81,11 +129,17 @@ function App() {
           handleEducationInputChange={handleEducationInputChange}
           removeEducation={removeEducation}
           addEducation={addEducation} />
+        <ExperienceInfoForm
+          experience={experience}
+          addExperience={addExperience}
+          handleExperienceInputChange={handleExperienceInputChange}
+          removeExperience={removeExperience}
+        />
       </div>
-      <div className="render">
-        <PersonalInfoPreview personalInfo={personalInfo} />
-        <EducationInfoPreview education={education} />
-      </div>
+      <ResumeRender
+        personalInfo={personalInfo}
+        education={education}
+        experience={experience} />
     </>
   )
 }

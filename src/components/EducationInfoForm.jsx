@@ -9,7 +9,6 @@ function EducationInfoForm({ education, handleEducationInputChange, addEducation
       <div key={edu.id} className="single-education-form">
         <div className="education-heading">
           <h1>Education {index + 1}</h1>
-          <h3>{edu.id}</h3>
           <button className="deleteEdu" onClick={() => removeEducation(edu.id)}>X</button>
         </div>
         <div className="school">
