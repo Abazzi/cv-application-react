@@ -3,6 +3,7 @@ import PersonalInfoForm from './components/PersonalInfoForm'
 import EducationInfoForm from './components/EducationInfoForm';
 import ResumeRender from './components/RenderedResume';
 import ExperienceInfoForm from './components/ExperienceInfoForm';
+import SkillsInfoForm from './components/SkillsInfoForm';
 
 function App() {
 
@@ -116,6 +117,39 @@ function App() {
     ])
   }
 
+  const [skills, setSkills] = useState([
+    {
+      id: crypto.randomUUID(),
+      skill: "PHP",
+      yearsOfExp: "5"
+    }
+  ])
+
+  const handleSkillInputChange = (e, id) => {
+    setSkills(skills.map(skill => {
+      if (skill.id === id) {
+        skill[e.target.name] = e.target.value;
+        return skill;
+      } else {
+        return skill;
+      }
+    }))
+  }
+
+  const removeSkill = (id) => {
+    setSkills(skills.filter(skill => skill.id !== id))
+  }
+
+  const addSkill = () => {
+    setSkills([
+      ...skills, {
+        id: crypto.randomUUID(),
+        name: "",
+        yearsOfExp: "",
+      }
+    ])
+  }
+
   return (
     <>
       <div className="form">
@@ -123,7 +157,8 @@ function App() {
           personalInfo={personalInfo}
           handlePersonalInfo={handlePersonalInfo}
         />
-        <EducationInfoForm education={education}
+        <EducationInfoForm
+          education={education}
           handleEducationInputChange={handleEducationInputChange}
           removeEducation={removeEducation}
           addEducation={addEducation} />
@@ -132,6 +167,12 @@ function App() {
           addExperience={addExperience}
           handleExperienceInputChange={handleExperienceInputChange}
           removeExperience={removeExperience}
+        />
+        <SkillsInfoForm
+          skills={skills}
+          handleSkillsInputChange={handleSkillInputChange}
+          addSkill={addSkill}
+          removeSkill={removeSkill}
         />
       </div>
       <ResumeRender
