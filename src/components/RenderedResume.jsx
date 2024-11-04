@@ -1,3 +1,4 @@
+export default function ResumeRender({ personalInfo, education, experience, skills }) {
   return (
     <section className="resume-render">
       <section className="personal-info-render">
@@ -31,6 +32,19 @@
               <h2 name="positiion">Position: {exp.position}</h2>
               <p name="description">Description: {exp.description}</p>
               <p name="startDate">Attended: {exp.startDate} - {exp.endDate}</p>
+            </div>
+          )
+          }
+        </div>
+      </section>
+      <section className="skills-render">
+        <h1 className="section-header">Skills</h1>
+        <div className="skills">
+          {skills.map((skill, index) =>
+            <div className="skill" key={skill.id}>
+              <h1>Skill {index + 1}</h1>
+              <h2 name="name">Skill: {skill.skillName}</h2>
+              <h2 name="yearsOfExp">Years of Experience: {skill.yearsOfExp}</h2>
             </div>
           )
           }
