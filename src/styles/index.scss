@@ -35,6 +35,11 @@
   }
 }
 
+.section-header {
+  color: cornflowerblue;
+  font-size: 2rem;
+}
+
 .education-heading {
   display: inline-flex;
   justify-content: space-around;
@@ -53,4 +58,10 @@
       background-color: green;
     }
   }
+}
+
+.skill > h1,
+.experience > h1,
+.education > h1 {
+  color: purple;
 }
