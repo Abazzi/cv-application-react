@@ -120,7 +120,7 @@ function App() {
   const [skills, setSkills] = useState([
     {
       id: crypto.randomUUID(),
-      skill: "PHP",
+      skillName: "PHP",
       yearsOfExp: "5"
     }
   ])
@@ -144,7 +144,7 @@ function App() {
     setSkills([
       ...skills, {
         id: crypto.randomUUID(),
-        name: "",
+        skillName: "",
         yearsOfExp: "",
       }
     ])
@@ -178,7 +178,9 @@ function App() {
       <ResumeRender
         personalInfo={personalInfo}
         education={education}
-        experience={experience} />
+        experience={experience}
+        skills={skills}
+      />
     </>
   )
 }

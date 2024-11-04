@@ -19,10 +19,10 @@ export default function SkillsInfoForm({ skills, handleSkillsInputChange, addSki
           <div className="company">
             <input
               type="text"
-              placeholder="Skill"
-              name="skill"
+              placeholder="Skill Name"
+              name="skillName"
               maxLength={20}
-              value={skill.name}
+              value={skill.skillName}
               onChange={(e) => handleSkillsInputChange(e, skill.id)} />
             <input
               type="text"
