@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PersonalInfoForm from './components/PersonalInfoForm'
 import EducationInfoForm from './components/EducationInfoForm';
-import ResumeRender from './components/RenderedResume';
+import ResumeRender from './components/ResumeRender';
 import ExperienceInfoForm from './components/ExperienceInfoForm';
 import SkillsInfoForm from './components/SkillsInfoForm';
 
@@ -122,7 +122,27 @@ function App() {
       id: crypto.randomUUID(),
       skillName: "PHP",
       yearsOfExp: "5"
-    }
+    },
+    {
+      id: crypto.randomUUID(),
+      skillName: "CSS & Sass",
+      yearsOfExp: "3"
+    },
+    {
+      id: crypto.randomUUID(),
+      skillName: "Javascript",
+      yearsOfExp: "10"
+    },
+    {
+      id: crypto.randomUUID(),
+      skillName: "React",
+      yearsOfExp: "1"
+    },
+    {
+      id: crypto.randomUUID(),
+      skillName: "Git",
+      yearsOfExp: "5"
+    },
   ])
 
   const handleSkillInputChange = (e, id) => {
