@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+
+#rendered-resume {
+  font-family: "Caladea", serif;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "contact experience experience"
+    "skills education education";
+}
+
+#rendered-resume {
+  border: 5px solid green;
+}
+
+#header-render {
+  grid-area: header;
+  text-align: center;
+}
+#contact-render {
+  grid-area: contact;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+#skills-render {
+  grid-area: skills;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+#experience-render {
+  grid-area: experience;
+}
+#education-render {
+  grid-area: education;
+}
+
+.rendered-name {
+  text-decoration: underline;
+  font-size: 2rem;
+}
