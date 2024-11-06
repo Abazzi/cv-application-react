@@ -19,7 +19,7 @@ export default function ResumeRender({ personalInfo, education, experience, skil
                 <h2 name="school">School: {edu.school}</h2>
                 <h2 name="program">Program: {edu.program}</h2>
                 <p name="description">Description: {edu.description}</p>
-                <p name="startDate">Attended: {edu.startDate}</p>
+                <p name="startDate">Attended: {edu.startDate} - {edu.endDate}</p>
               </div>
             )
             }
